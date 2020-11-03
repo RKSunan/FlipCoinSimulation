@@ -2,32 +2,36 @@
 #echo "This problem displays the winner Heads or Tails"
 head=0
 tail=0
+n=0
+if [ $head == $tail ]
+then
+while [ $n -lt 2 ]
+do
 for i in $(seq 1 100)
 do
 flip=$((RANDOM%2))
-if [[ $head -lt 21 && $tail -lt 21 ]]
-then
+
 if [ $flip == 1 ]
 then
-#	echo "Head Wins"
-	((head++))
+#       echo "Head Wins"
+        ((head++))
 else
-#	echo "Tail Wins"
-	((tail++))
+#       echo "Tail Wins"
+        ((tail++))
 
 fi
+  	 if [ $head -gt $tail ]
+        then
+        n=$(($head - $tail))
+        elif [ $tail -gt $head ]
+  	then
+      	n=$(($tail - $head))
+
 fi
 done
-echo "Head has won $head times"
-echo "Tail has won $tail times"
-if [ $head == $tail ]
-then
-	echo "There is a tie"
-elif [ $head -gt $tail ]
-then
-	n=$(($head - $tail))  
-	echo "Head wins $n more"
-else
-	n=$(($tail - $head))
-	echo "Tail wins $n more"
+done
+echo "Head wins $head times"
+echo "Tail wins $tail times"
+echo "Head and  tail win difference is $n"
 fi
+
