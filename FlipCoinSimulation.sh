@@ -2,15 +2,15 @@
 #echo "This problem displays the winner Heads or Tails"
 head=0
 tail=0
-for i in $(seq 1 20)
+for i in $(seq 1 100)
 do
 flip=$((RANDOM%2))
 if [ $flip == 1 ]
 then
-	echo "Head Wins"
+#	echo "Head Wins"
 	((head++))
 else
-	echo "Tail Wins"
+#	echo "Tail Wins"
 	((tail++))
 fi
 done
